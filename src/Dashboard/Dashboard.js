@@ -8,6 +8,7 @@ import Box from "@material-ui/core/Box";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import List from "@material-ui/core/List";
+import Avatar from "@material-ui/core/Avatar";
 import Typography from "@material-ui/core/Typography";
 import Divider from "@material-ui/core/Divider";
 import IconButton from "@material-ui/core/IconButton";
@@ -27,7 +28,7 @@ import {
   deepOrange
 } from "@material-ui/core/colors";
 import Chart from "./Chart";
-import Deposits from "./Deposits";
+import UserCard from "./UserCard";
 import Orders from "./Orders";
 
 // For Switch Theming
@@ -193,6 +194,10 @@ export default function Dashboard() {
                 <NotificationsIcon />
               </Badge>
             </IconButton>
+            <Avatar
+              alt="Uddeshya Singh"
+              src="../static/image/profilePicture.jpg"
+            />
           </Toolbar>
         </AppBar>
         <Drawer
@@ -222,10 +227,10 @@ export default function Dashboard() {
                   <Chart />
                 </Paper>
               </Grid>
-              {/* Recent Deposits */}
+              {/* User Card */}
               <Grid item xs={12} md={4} lg={3}>
                 <Paper className={fixedHeightPaper}>
-                  <Deposits />
+                  <UserCard />
                 </Paper>
               </Grid>
               {/* Recent Orders */}

@@ -49,7 +49,7 @@ export default function Chart() {
 
   return (
     <React.Fragment>
-      <Title> Highest Ratings : 1581 </Title>
+      <Title> Highest Rating : 1581 </Title>
       <ResponsiveContainer>
         <LineChart
           width={500}
