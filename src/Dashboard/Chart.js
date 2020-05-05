@@ -5,26 +5,43 @@ import {
   Line,
   XAxis,
   YAxis,
-  Label,
-  ResponsiveContainer
+  ResponsiveContainer,
+  Label
 } from "recharts";
 import Title from "./Title";
 
 // Generate Sales Data
-function createData(time, amount) {
-  return { time, amount };
+function createData(time, contestName, rating, rank) {
+  const dataObject = {
+    time: time,
+    contestName: contestName,
+    rating: rating,
+    rank: rank,
+    tier: getTier(rating)
+  };
+  return dataObject;
 }
 
+function getTier(rating) {
+  if (rating < 1199) return "newbie";
+  else if (rating < 1399) return "pupil";
+  else if (rating < 1599) return "specialist";
+  else if (rating < 1899) return "expert";
+  else if (rating < 2099) return "candidate master";
+  else if (rating < 2299) return "master";
+  else if (rating < 2399) return "international master";
+  else if (rating < 2599) return "grandmaster";
+  else if (rating < 2999) return "international grandmaster";
+  else return "legendary grandmaster";
+}
 const data = [
-  createData("00:00", 0),
-  createData("03:00", 300),
-  createData("06:00", 600),
-  createData("09:00", 800),
-  createData("12:00", 1500),
-  createData("15:00", 2000),
-  createData("18:00", 2400),
-  createData("21:00", 2400),
-  createData("24:00", undefined)
+  createData("Oct 2019", "Codeforces Round #639", 1350, 4234),
+  createData("Nov 2019", "Codeforces Round #641", 1393, 1434),
+  createData("Dec 2019", "Codeforces Round #643", 1211, 6783),
+  createData("Jan 2020", "Codeforces Round #644", 1400, 678),
+  createData("Feb 2020", "Codeforces Round #646", 1450, 1345),
+  createData("Mar 2020", "Codeforces Round #648", 1581, 1456),
+  createData("Apr 2020", "Codeforces Round #649", 1511, 3500)
 ];
 
 export default function Chart() {
@@ -32,15 +49,17 @@ export default function Chart() {
 
   return (
     <React.Fragment>
-      <Title>Today</Title>
+      <Title> Highest Ratings : 1581 </Title>
       <ResponsiveContainer>
         <LineChart
+          width={500}
+          height={300}
           data={data}
           margin={{
-            top: 16,
-            right: 16,
-            bottom: 0,
-            left: 24
+            top: 5,
+            right: 30,
+            left: 20,
+            bottom: 5
           }}
         >
           <XAxis dataKey="time" stroke={theme.palette.text.secondary} />
@@ -50,14 +69,13 @@ export default function Chart() {
               position="left"
               style={{ textAnchor: "middle", fill: theme.palette.text.primary }}
             >
-              Sales ($)
+              Ratings
             </Label>
           </YAxis>
           <Line
             type="monotone"
-            dataKey="amount"
+            dataKey="rating"
             stroke={theme.palette.primary.main}
-            dot={false}
           />
         </LineChart>
       </ResponsiveContainer>

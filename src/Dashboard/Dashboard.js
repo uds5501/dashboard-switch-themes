@@ -185,7 +185,7 @@ export default function Dashboard() {
               noWrap
               className={classes.title}
             >
-              Dashboard
+              Codeforces Concept UI
             </Typography>
             <Switch checked={darkState} onChange={handleThemeChange} />
             <IconButton color="inherit">

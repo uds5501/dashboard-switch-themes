@@ -1,10 +1,13 @@
 {
-  "name": "react",
+  "name": "codeforces-dark",
   "version": "1.0.0",
-  "description": "React example starter project",
+  "description": "Codeforces UI concept with theme switching feature , using material-ui dashboard ",
   "keywords": [
-    "react",
-    "starter"
+    "concept",
+    "codeforces",
+    "dark-theme",
+    "theme",
+    "dark"
   ],
   "main": "src/index.js",
   "dependencies": {
