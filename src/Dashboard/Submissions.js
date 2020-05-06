@@ -1,14 +1,17 @@
 import React from "react";
-import Link from "@material-ui/core/Link";
 import { makeStyles } from "@material-ui/core/styles";
-import Table from "@material-ui/core/Table";
-import TableBody from "@material-ui/core/TableBody";
-import TableCell from "@material-ui/core/TableCell";
-import TableHead from "@material-ui/core/TableHead";
-import TableRow from "@material-ui/core/TableRow";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableRow,
+  Link,
+  Typography
+} from "@material-ui/core";
 import Title from "./Title";
 
-// Generate Order Data
+// Generate Submission Data
 function createData(id, hash, when, who, problem, lang, verdict, time, memory) {
   return { id, hash, when, who, problem, lang, verdict, time, memory };
 }
@@ -115,7 +118,16 @@ export default function Submissions() {
                 </Link>
               </TableCell>
               <TableCell>{row.lang}</TableCell>
-              <TableCell>{row.verdict}</TableCell>
+              <TableCell>
+                <Typography
+                  color={
+                    row.verdict === "Accepted" ? "primary" : "textSecondary"
+                  }
+                  variant="body2"
+                >
+                  {row.verdict}
+                </Typography>
+              </TableCell>
               <TableCell>{row.time}</TableCell>
               <TableCell>{row.memory}</TableCell>
             </TableRow>
