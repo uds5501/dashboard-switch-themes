@@ -29,7 +29,7 @@ import {
 } from "@material-ui/core/colors";
 import Chart from "./Chart";
 import UserCard from "./UserCard";
-import Orders from "./Orders";
+import Submissions from "./Submissions";
 
 // For Switch Theming
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
@@ -129,7 +129,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function Dashboard() {
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
   const [darkState, setDarkState] = useState(false);
   const palletType = darkState ? "dark" : "light";
   const mainPrimaryColor = darkState ? orange[500] : lightBlue[500];
@@ -233,10 +233,10 @@ export default function Dashboard() {
                   <UserCard />
                 </Paper>
               </Grid>
-              {/* Recent Orders */}
+              {/* Submission Table */}
               <Grid item xs={12}>
                 <Paper className={classes.paper}>
-                  <Orders />
+                  <Submissions />
                 </Paper>
               </Grid>
             </Grid>
